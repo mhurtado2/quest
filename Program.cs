@@ -9,6 +9,8 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            void ChallengeGame ()
+            {
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -78,6 +80,16 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+
+            }
+            ChallengeGame();
+
+            Console.WriteLine("do you wish to go again");
+            string repeatQuest = Console.ReadLine().ToLower().Trim();
+            if (repeatQuest == "y"){
+                ChallengeGame();
+             }
+            
         }
     }
 }
