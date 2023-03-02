@@ -9,8 +9,19 @@ namespace Quest
     {
         static void Main(string[] args)
         {
-            void ChallengeGame ()
+            Robe TheRobe = new();
+            TheRobe.Colors = new List<string>() {"red", "white", "blue"};
+            TheRobe.LengthOfRobe = 69;
+
+             Console.Write("What is your name: ");
+            string Username= Console.ReadLine().Trim();
+            Adventurer theAdventurer = new Adventurer(Username, TheRobe);
+
+            void ChallengeGame (Adventurer theAdventurer)
             {
+
+            Console.WriteLine(theAdventurer.GetDescription()); //get description is a method of the adventurer must call adventurer
+
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -45,9 +56,9 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Console.Write("What is your name: ");
-            string Username= Console.ReadLine().Trim();
-            Adventurer theAdventurer = new Adventurer(Username);
+            // Console.Write("What is your name: ");
+            // string Username= Console.ReadLine().Trim();
+            // Adventurer theAdventurer = new Adventurer(Username);
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
@@ -82,13 +93,19 @@ namespace Quest
             }
 
             }
-            ChallengeGame();
+            ChallengeGame(theAdventurer);
 
-            Console.WriteLine("do you wish to go again");
+            while(true)
+            {
+            Console.WriteLine($"do you wish to go again: {theAdventurer.Name} ");
             string repeatQuest = Console.ReadLine().ToLower().Trim();
             if (repeatQuest == "y"){
-                ChallengeGame();
+                ChallengeGame(theAdventurer);
              }
+             else{
+                    break;
+             }
+            }
             
         }
     }
