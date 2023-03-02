@@ -16,14 +16,17 @@ namespace Quest
 
         public Robe ColorfulRobe { get; }
 
+         public Hat ShinyHat {get;}
+
         // A constructor to make a new Adventurer object with a given name
 
         // Add a new constructor parameter to the Adventurer class to accept a Robe and to set the ColorfulRobe property.
-        public Adventurer(string name, Robe colorfulRobe)
+        public Adventurer(string name, Robe colorfulRobe, Hat theHat)
         {
             Name = name;
             Awesomeness = 50;
             ColorfulRobe = colorfulRobe;
+             ShinyHat = theHat;
         }
 
 
@@ -31,9 +34,9 @@ namespace Quest
         // This method should return a string that contains the adventurer's name and a description of their robe.
 
     public string GetDescription(){
-        return $"{Name} {ColorfulRobe.LengthOfRobe} {string.Join("," , ColorfulRobe.Colors)}";
+       return $"{Name} is wearing a {ColorfulRobe.LengthOfRobe} inch {string.Join(", ", ColorfulRobe.Colors)} robe and a {ShinyHat.ShininessDescription} hat";
     }
-
+//  return $"{Name} is wearing a {ColorfulRobe.Length} inch {string.Join(", ", ColorfulRobe.Colors)} robe and a {ShinyHat.ShininessDescription} hat"
         // This method returns a string that describes the Adventurer's status
         // Note one way to describe what this method does is:
         //   it transforms the Awesomeness integer into a status string

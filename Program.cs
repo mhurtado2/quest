@@ -13,9 +13,12 @@ namespace Quest
             TheRobe.Colors = new List<string>() {"red", "white", "blue"};
             TheRobe.LengthOfRobe = 69;
 
+              Hat shinyHat = new();
+            shinyHat.ShininessLevel = 6;
+
              Console.Write("What is your name: ");
             string Username= Console.ReadLine().Trim();
-            Adventurer theAdventurer = new Adventurer(Username, TheRobe);
+            Adventurer theAdventurer = new Adventurer(Username, TheRobe, shinyHat);
 
             void ChallengeGame (Adventurer theAdventurer)
             {
