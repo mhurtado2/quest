@@ -50,6 +50,11 @@ namespace Quest
 ",
                 4, 20
             );
+            Challenge threePlusTwo = new Challenge("3 + 2?", 5, 10);
+            Challenge onePlusTwo = new Challenge("1 + 2?", 3, 10);
+
+            //add here too
+            //and here
 
             // "Awesomeness" is like our Adventurer's current "score"
             // A higher Awesomeness is better
@@ -73,11 +78,26 @@ namespace Quest
                 theAnswer,
                 whatSecond,
                 guessRandom,
-                favoriteBeatle
+                favoriteBeatle,
+                threePlusTwo,
+                onePlusTwo
+                //another challenge
+                //another one
             };
 
+            List<Challenge> selectChallenges = new List<Challenge>{};
+            while(selectChallenges.Count < 6)
+            {
+                Random random = new Random();
+                int randomChallenges = random.Next(0,6);
+                if(!selectChallenges.Contains(challenges[randomChallenges]))
+                {
+                    selectChallenges.Add(challenges[randomChallenges]);
+                }
+            }
+
             // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
+            foreach (Challenge challenge in selectChallenges) //changed from challenges
             {
                 challenge.RunChallenge(theAdventurer);
             }
